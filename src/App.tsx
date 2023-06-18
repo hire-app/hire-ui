@@ -10,7 +10,7 @@ const App: React.FC = () => {
       case 'dashboard':
         return <UserDashboard />;
       case 'addUser':
-        return <AddUserForm />;
+        return <AddUserForm onClose={()=>false}/>;
       default:
         return <UserDashboard />;
     }
@@ -18,10 +18,6 @@ const App: React.FC = () => {
 
   const navigateToDashboard = () => {
     setCurrentPage('dashboard');
-  };
-
-  const navigateToAddUser = () => {
-    setCurrentPage('addUser');
   };
 
   return (

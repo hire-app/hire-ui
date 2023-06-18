@@ -12,9 +12,7 @@ const AddUserForm: React.FC<AddUserFormProps> = ({ onClose }) => {
   const [country, setCountry] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumbers, setPhoneNumbers] = useState<string[]>(['']);
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [showWarning, setShowWarning] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -36,9 +34,6 @@ const AddUserForm: React.FC<AddUserFormProps> = ({ onClose }) => {
     setEmail(e.target.value);
   };
 
-  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPhoneNumber(e.target.value);
-  };
 
   const handleAddPhoneNumber = () => {
     setPhoneNumbers([...phoneNumbers, '']);
@@ -47,11 +42,6 @@ const AddUserForm: React.FC<AddUserFormProps> = ({ onClose }) => {
   const handlePhoneNumberInputChange = (index: number, value: string) => {
     const updatedPhoneNumbers = [...phoneNumbers];
     updatedPhoneNumbers[index] = value;
-    setPhoneNumbers(updatedPhoneNumbers);
-  };
-
-  const handleRemovePhoneNumber = (index: number) => {
-    const updatedPhoneNumbers = phoneNumbers.filter((_, i) => i !== index);
     setPhoneNumbers(updatedPhoneNumbers);
   };
 
